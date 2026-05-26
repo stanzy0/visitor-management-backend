@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: nexus-sis-api
+    runtime: node
+    plan: free
+    envVars:
+      - key: JWT_SECRET
+        generateValue: true
+      - key: PORT
+        value: 5000
+    buildCommand: npm install
+    startCommand: npm start
