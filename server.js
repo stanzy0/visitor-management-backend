@@ -38,6 +38,20 @@ app.get('/health', (req, res) => {
   res.json({ status: 'OK', timestamp: new Date().toISOString() });
 });
 
+// Root welcome page
+app.get('/', (req, res) => {
+  res.json({ 
+    message: 'NEXUS SIS API', 
+    version: '1.0.0',
+    endpoints: [
+      '/api/auth', '/api/users', '/api/students', '/api/staff',
+      '/api/classes', '/api/subjects', '/api/timetable', '/api/attendance',
+      '/api/grades', '/api/inquiries', '/api/applications', '/api/fees',
+      '/api/notifications', '/api/dashboard', '/api/visitors'
+    ]
+  });
+});
+
 // Error handling
 app.use((err, req, res, next) => {
   console.error(err.stack);
